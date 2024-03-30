@@ -1,0 +1,10 @@
+name: classic-child
+display_name: Thème custom pour Sticky Spinners
+parent: classic
+version: 1.0.1
+author: 
+  name: "Gauthier Seyzeriat-Meyer"
+  email: "gseyzeriat1@gmail.com"
+  url: "https://www.seyzeriat.fr"
+assets:
+  use_parent_assets: true

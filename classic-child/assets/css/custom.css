@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Chicle&family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --beige-1: #FFFDF1;
+    --beige-2: #FFFCEB;
+    --beige-3: #FFF9D6;
+    --beige-4: #FFF6C2;
+    --red-1: #BE020C;
+    --red-2: #DB020F;
+    --red-3: #F51725;
+    --red-4: #FD4350;
+    --dark-red: #790107;
+    --grey-1: #5A5958;
+    --grey-2: #454443;
+    --grey-3: #363534;
+    --grey-4: #2C2B2A;
+    --black-1: #313638;
+    --black-2: #262A2C;
+    --black-3: #131516;
+    --black-4: #090A0B;
+}
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Chicle', cursive;
+}
+
+a:hover {
+    color: var(--dark-red);
+}
+
+.btn-primary:hover {
+    background-color: var(--dark-red);
+}
+
+ .footer-container li a:hover {
+    color: var(--dark-red);
+}
+
