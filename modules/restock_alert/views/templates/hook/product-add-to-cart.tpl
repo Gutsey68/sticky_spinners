@@ -13,15 +13,19 @@
 *}
 
 {* le hook : displayProductActions *}
-
-<form method="post">
-    <fieldset>
-        <p class="form-row">
-            <label for="alert_email"></label>
-            <input type="email" name="ALERT_EMAIL" id="alert_email" value="{$email_restock}" required="required" />
-        </p>
-        <p class="form-submit">
-            <button type="submit" name="submit" class="btn btn-primary">M'inscrire</button>
-        </p>
-    </fieldset>
-</form>
+<br>
+<div>
+    <form method="post">
+        <fieldset>
+            <p class="form-row">
+                <label for="alert_email"></label>
+                <input type="email" name="ALERT_EMAIL" id="alert_email" value="
+                    {$email_restock}
+                " required="required" />
+            </p>
+            <p class="form-submit">
+                <button type="submit" name="submit" class="btn btn-primary">M'inscrire</button>
+            </p>
+        </fieldset>
+    </form>
+</div>

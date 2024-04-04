@@ -8,10 +8,10 @@
 
 		public function __construct() {
 
-			$this->name = 'gauthier';
+			$this->name = 'restock_alert';
 			$this->tab = 'front_office_features';
 			$this->version = '1.0.0';
-			$this->author = 'Gauthier';
+			$this->author = 'Gauthier Seyzeriat--Meyer';
 			$this->need_instance = 0;
 			$this->bootstrap = true;
 
@@ -23,9 +23,7 @@
 
 		public function install () {
 			if (!parent::install() || 
-				!$this->registerHook('displayProductActions') || 
-				!$this->registerHook('actionFrontControllerSetMedia') ||
-				!$this->createTable()) {
+				!$this->registerHook('displayProductActions') ) {
 				return false;
 			}
 			return true;
@@ -46,7 +44,6 @@
 			$params = array (
 				'id_product' => $id_product
 			);
-			
 
 			$email = Configuration::get('ALERT_EMAIL');
 
@@ -54,7 +51,7 @@
 				'email_restock'       => $email,
 			));
 
-			return $this->display(__FILE__, 'personnal-information.tpl');
+			return $this->display(__FILE__, 'product-add-to-cart.tpl');
 		}
         
 		public function getContent() {
