@@ -33,24 +33,10 @@
 
 		public function uninstall() {
 
-			Configuration::deleteByName('DEVIS_TITRE');
-			Configuration::deleteByName('DEVIS_DESCRIPTION');
-			Configuration::deleteByName('DEVIS_IMG');
+			Configuration::deleteByName('ALERT_EMAIL');
 
 			return parent::uninstall();
 			
-		}
-
-		public function hookActionFrontControllerSetMedia() {
-			
-            // a changer ->
-			// inclure fichier CSS 
-			$this->context->controller->registerStylesheet(
-				'module-gauthier-style' , // identifiant
-				'modules/'.$this->name.'/views/assets/css/front.css' // chemin
-			);
-
-
 		}
 
 		public function hookDisplayProductActions() {

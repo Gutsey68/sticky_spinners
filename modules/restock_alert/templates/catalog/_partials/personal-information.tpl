@@ -12,3 +12,16 @@
          qui vérifiée les stocks et envoie les mails lorsque le stock est mis à jour
 *}
 
+{* le hook : displayProductActions *}
+
+<form method="post">
+    <fieldset>
+        <p class="form-row">
+            <label for="email"></label>
+            <input type="email" name="email" id="email" value="{$email_restock}" required="required" />
+        </p>
+        <p class="form-submit">
+            <button type="submit" name="submit" class="btn btn-primary">M'inscrire</button>
+        </p>
+    </fieldset>
+</form>
