@@ -40,3 +40,30 @@ a:hover {
     color: var(--dark-red);
 }
 
+/* categories_landing_page */
+
+.home-categories-display {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.category-block {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+
+.category-name {
+    padding: 10px;
+    text-align: center;
+    background-color: #f8f8f8;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .home-categories-display {
+        grid-template-columns: 1fr;
+    }
+}
