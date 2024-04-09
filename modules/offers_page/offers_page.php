@@ -23,7 +23,7 @@
 
 		public function install () {
 			if (!parent::install() || 
-				!$this->registerHook('displayNavFullWidth') ) {
+				!$this->registerHook('displayTop') ) {
 				return false;
 			}
 			return true;
@@ -37,7 +37,7 @@
 			
 		}
 
-		public function hookDisplayNavFullWidth() {
+		public function hookDisplayTop() {
 			
 
 			$email = Configuration::get('ALERT_EMAIL');

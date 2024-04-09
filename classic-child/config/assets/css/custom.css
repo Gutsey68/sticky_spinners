@@ -24,7 +24,6 @@
     font-family: 'Roboto', sans-serif;
 }
 
-
 h1, h2, h3 {
     font-family: 'Chicle', cursive;
 }
@@ -36,51 +35,10 @@ a:hover, .footer-container li a:hover {
 .btn-primary:hover {
     background-color: var(--red-5);
 }
-/* product card */
 
-.product-miniature .product-description {
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px;
-}
 .thumbnail-top {
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-}
-
-.product-miniature .thumbnail-container {
-    background: none !important;
-}
-
-.product-miniature .thumbnail-container .product-thumbnail img {
-    background: white;
-}
-
-/* bloc du text custom */
-
-#custom-text {
-    background: none;
-}
-
-/* bloc des catégories */
-
-.block-categories {
-    padding: 1.563rem 1.25rem;
-    margin-bottom: 1.563rem;
-    background: none;
-}
-
-/* bloc des catégories */
-
-.pagination .page-list {
-    background: none;
-}
-
-/* bouton nouveau */
-
-.product-flags li.product-flag {
-    margin-left: 0.7rem;
-    border-radius: 12px;
-    padding: 0.5rem 0.6rem 0.4rem 0.6rem;
+    border-radius: 25px;
+    background-color: red;
 }
 
 /* categories_landing_page */
@@ -92,7 +50,8 @@ a:hover, .footer-container li a:hover {
 }
 
 .category-block {
-    border-radius: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
     overflow: hidden;
 }
 
@@ -100,7 +59,7 @@ a:hover, .footer-container li a:hover {
 .category-name {
     padding: 10px;
     text-align: center;
-    background-color: white;
+    background-color: #f8f8f8;
     margin: 0;
 }
 
