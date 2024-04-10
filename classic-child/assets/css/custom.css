@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Chicle&family=Roboto:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 @layer base {
   :root {
@@ -32,7 +32,7 @@
 }
 
 * {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .Chicle {
@@ -103,15 +103,42 @@ a:hover,
 }
 
 .category-block {
-  border-radius: var(--radius);
+  position: relative;
   overflow: hidden;
 }
 
+.category-block .category-image {
+  position: relative;
+  width: 100%;
+}
+
+.category-block .category-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.category-block .category-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
 .category-name {
-  padding: 10px;
-  text-align: center;
-  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  z-index: 2;
   margin: 0;
+  width: calc(100% - 20px);
+  text-align: center;
 }
 
 @media (max-width: 768px) {
