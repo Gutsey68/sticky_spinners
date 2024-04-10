@@ -1,111 +1,121 @@
 @import url('https://fonts.googleapis.com/css2?family=Chicle&family=Roboto:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
-
-:root {
-    --red-1: #FFF7F7;  /* Backgrounds */
-    --red-2: #FFDBDC;  /* Interactive components */
-    --red-3: #F4A9AA;  /* Borders and separators */
-    --red-4: #DC3E42;  /* Solid backgrounds, buttons */
-    --red-5: #641723;  /* High-contrast text */
-    --yellow-1: #FEFCE9;  /* Backgrounds */
-    --yellow-2: #FFF394;  /* Interactive components */
-    --yellow-3: #E4C767;  /* Borders and separators */
-    --yellow-4: #FFDC00;  /* Solid backgrounds, buttons */
-    --yellow-5: #473B1F;  /* High-contrast text */
-    --gray-1: #F9F9F9;  /* Backgrounds */
-    --gray-2: #E8E8E8;  /* Interactive components */
-    --gray-3: #CECECE;  /* Borders and separators */
-    --gray-4: #838383;  /* Solid backgrounds, buttons */
-    --gray-5: #202020;  /* High-contrast text */
+@layer base {
+  :root {
+    --red-1: #fff7f7; /* Backgrounds */
+    --red-2: #ffdbdc; /* Interactive components */
+    --red-3: #f4a9aa; /* Borders and separators */
+    --red-4: #dc3e42; /* Solid backgrounds, buttons */
+    --red-5: #641723; /* High-contrast text */
+    --background: hsl(0, 0%, 100%);
+    --foreground: hsl(0, 0%, 0%);
+    --muted: hsl(0, 12%, 90%);
+    --muted-foreground: hsl(0, 12%, 30%);
+    --popover: hsl(0, 0%, 97%);
+    --popover-foreground: hsl(0, 0%, 0%);
+    --card: hsl(0, 0%, 98%);
+    --card-foreground: hsl(0, 0%, 0%);
+    --border: hsl(0, 0%, 95%);
+    --input: hsl(0, 0%, 92%);
+    --primary: hsl(0, 0%, 17%);
+    --primary-foreground: hsl(0, 0%, 77%);
+    --secondary: hsl(0, 0%, 75%);
+    --secondary-foreground: hsl(0, 0%, 15%);
+    --accent: hsl(0, 0%, 85%);
+    --accent-foreground: hsl(0, 0%, 25%);
+    --destructive: hsl(5, 94%, 44%);
+    --destructive-foreground: hsl(0, 0%, 100%);
+    --ring: hsl(0, 0%, 17%);
+    --radius: 0.5rem;
+  }
 }
 
 * {
-    font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
-
-h1, h2, h3 {
-    font-family: 'Chicle', cursive;
+.Chicle {
+  font-family: 'Chicle', cursive;
 }
 
-a:hover, .footer-container li a:hover {
-    color: var(--red-5);
+a:hover,
+.footer-container li a:hover {
+  color: var(--red-5);
 }
 
 .btn-primary:hover {
-    background-color: var(--red-5);
+  background-color: var(--red-5);
 }
 /* product card */
 
 .product-miniature .product-description {
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px;
+  border-bottom-left-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
 }
 .thumbnail-top {
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
 }
 
 .product-miniature .thumbnail-container {
-    background: none !important;
+  background: none !important;
 }
 
 .product-miniature .thumbnail-container .product-thumbnail img {
-    background: white;
+  background: white;
 }
 
 /* bloc du text custom */
 
 #custom-text {
-    background: none;
+  background: none;
 }
 
 /* bloc des catégories */
 
 .block-categories {
-    padding: 1.563rem 1.25rem;
-    margin-bottom: 1.563rem;
-    background: none;
+  padding: 1.563rem 1.25rem;
+  margin-bottom: 1.563rem;
+  background: none;
 }
 
 /* bloc des catégories */
 
 .pagination .page-list {
-    background: none;
+  background: none;
 }
 
 /* bouton nouveau */
 
 .product-flags li.product-flag {
-    margin-left: 0.7rem;
-    border-radius: 12px;
-    padding: 0.5rem 0.6rem 0.4rem 0.6rem;
+  margin-left: 0.7rem;
+  border-radius: var(--radius);
+  padding: 0.5rem 0.6rem 0.4rem 0.6rem;
 }
 
 /* categories_landing_page */
 
 .home-categories-display {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
 }
 
 .category-block {
-    border-radius: 12px;
-    overflow: hidden;
+  border-radius: var(--radius);
+  overflow: hidden;
 }
 
-
 .category-name {
-    padding: 10px;
-    text-align: center;
-    background-color: white;
-    margin: 0;
+  padding: 10px;
+  text-align: center;
+  background-color: white;
+  margin: 0;
 }
 
 @media (max-width: 768px) {
-    .home-categories-display {
-        grid-template-columns: 1fr;
-    }
+  .home-categories-display {
+    grid-template-columns: 1fr;
+  }
 }

@@ -23,10 +23,43 @@
 
 		public function install () {
 			if (!parent::install() || 
+				!$this->createTable() ||
+				!$this->installTab() ||
 				!$this->registerHook('displayTop') ) {
 				return false;
 			}
 			return true;
+		}
+		
+		private function installTab()
+		{
+			$tab = new Tab();
+			$tab->class_name = 'AdminOffersController';
+			$tab->module = $this->name;
+			$tab->id_parent = (int)Tab::getIdFromClassName('AdminCatalog'); // Vous pouvez changer 'AdminCatalog' par un autre onglet parent selon vos besoins
+			$tab->name = array();
+			foreach (Language::getLanguages(true) as $lang) {
+				$tab->name[$lang['id_lang']] = 'Gérer les Annonces'; // Le nom de votre onglet dans le menu
+			}
+			return $tab->add();
+		}
+
+		private function createTable() {
+			$sql = "CREATE TABLE IF NOT EXISTS `" . _DB_PREFIX_ . "offers` (
+				`id_offer` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+				`title` VARCHAR(255) NOT NULL,
+				`description` TEXT NOT NULL,
+				`image` VARCHAR(255) NULL,
+				`date_add` DATETIME NOT NULL,
+				`date_upd` DATETIME NOT NULL,
+				PRIMARY KEY (`id_offer`)
+			) ENGINE=" . _MYSQL_ENGINE_ . " DEFAULT CHARSET=utf8;";
+
+			$result = DB::getInstance()->execute($sql);
+			
+			if ($result) {
+				return true;
+			}
 		}
 
 		public function uninstall() {
