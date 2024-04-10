@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Chicle&family=Roboto:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 @layer base {
   :root {
+    --red-primary: #be020c;
     --red-1: #fff7f7; /* Backgrounds */
     --red-2: #ffdbdc; /* Interactive components */
     --red-3: #f4a9aa; /* Borders and separators */
@@ -66,10 +68,32 @@ a:hover,
   background: white;
 }
 
+/* header */
+
+#header {
+  position: relative;
+  z-index: 999;
+  color: #7a7a7a;
+  background: #fff;
+  -webkit-box-shadow: 0;
+  box-shadow: none;
+}
 /* bloc du text custom */
 
 #custom-text {
   background: none;
+  padding: 2.5rem 0;
+}
+
+#custom-text h1 {
+  font-family: 'Chicle', cursive;
+  font-size: 2.5rem;
+  color: var(--red-primary);
+}
+
+#custom-text div.lead {
+  font-weight: 600;
+  padding-bottom: 0.25rem;
 }
 
 /* bloc des catégories */
@@ -78,6 +102,13 @@ a:hover,
   padding: 1.563rem 1.25rem;
   margin-bottom: 1.563rem;
   background: none;
+}
+
+/* bloc featured-products */
+
+.featured-products h2 {
+  font-weight: 600 !important;
+  padding-top: 2.5rem;
 }
 
 /* bloc des catégories */
@@ -100,6 +131,7 @@ a:hover,
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
+  border-radius: var(--radius);
 }
 
 .category-block {
@@ -116,6 +148,7 @@ a:hover,
   width: 100%;
   height: auto;
   display: block;
+  border-radius: var(--radius);
 }
 
 .category-block .category-image::before {
@@ -126,6 +159,7 @@ a:hover,
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
+  border-radius: var(--radius);
   z-index: 1;
 }
 
@@ -133,12 +167,19 @@ a:hover,
   position: absolute;
   top: 50%;
   left: 50%;
+  font-size: 2rem;
   transform: translate(-50%, -50%);
   color: white;
   z-index: 2;
   margin: 0;
   width: calc(100% - 20px);
   text-align: center;
+}
+
+#home-categories {
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2.5rem;
 }
 
 @media (max-width: 768px) {

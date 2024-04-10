@@ -1,4 +1,5 @@
 {if isset($categories) && $categories|count > 0}
+    <h2 id="home-categories">CATEGORIES</h2>
     <div class="home-categories-display">
         {foreach from=$categories item=category}
             <div class="category-block">
