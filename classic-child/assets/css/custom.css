@@ -73,11 +73,33 @@ a:hover,
 #header {
   position: relative;
   z-index: 999;
-  color: #7a7a7a;
+  color: var(--foreground);
   background: #fff;
   -webkit-box-shadow: 0;
   box-shadow: none;
 }
+
+#header a,
+#header span {
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+#header .header-nav .cart-preview .shopping-cart {
+  color: var(--foreground);
+}
+
+.custom-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+.custom-header a {
+  margin-right: 20px;
+  margin-top: 0.7rem;
+}
+
 /* bloc du text custom */
 
 #custom-text {
@@ -128,6 +150,7 @@ a:hover,
 /* categories_landing_page */
 
 .home-categories-display {
+  margin: 0 1rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
@@ -186,4 +209,53 @@ a:hover,
   .home-categories-display {
     grid-template-columns: 1fr;
   }
+}
+
+/* catégories */
+
+.subcategory-image {
+  padding: 0;
+  border: none;
+}
+
+.subcategory-image img {
+  border-radius: var(--radius);
+}
+
+.subcategory-image :hover {
+  padding: 0;
+  border: none;
+}
+
+a.subcategory-name {
+  color: black;
+}
+
+.subcategory-image:hover img {
+  filter: brightness(50%);
+}
+
+#js-product-list-header,
+.subcategory-heading {
+  display: none;
+}
+
+#subcategories ul li .subcategory-image a {
+  border: none;
+}
+
+.card-block {
+  background-color: #f5f5f5;
+}
+
+.text-uppercase.h6 {
+  color: var(--red-primary);
+  font-family: 'Chicle', cursive;
+}
+
+.brands-sort .select-title,
+.products-sort-order .select-title,
+.suppliers-sort .select-title {
+  border: none;
+  border-radius: var(--radius);
 }
