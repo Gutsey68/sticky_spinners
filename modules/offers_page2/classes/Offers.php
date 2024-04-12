@@ -13,6 +13,7 @@ class Offers extends ObjectModel
     public $image;
     public $date_add; 
     public $valid;
+    public $active;
     
     public static $definition = array(
         'table' => 'offers',
@@ -24,6 +25,7 @@ class Offers extends ObjectModel
             'image' => array('type' => self::TYPE_STRING, 'validate' => 'isString', 'size' => 255),
             'date_add' => array('type' => self::TYPE_DATE, 'validate' => 'isDateFormat'),
             'valid' => array('type' => self::TYPE_BOOL, 'validate' => 'isBool'),
+            'active' => array ('type' => self::TYPE_BOOL, 'validate' => 'isBool'),
         ),
     );
 
@@ -48,7 +50,8 @@ class Offers extends ObjectModel
             SELECT o.*, c.firstname AS customer_firstname
             FROM '._DB_PREFIX_.'offers o
             LEFT JOIN '._DB_PREFIX_.'customer c ON c.id_customer = o.id_customer
-            WHERE o.valid = 1');
+            WHERE o.valid = 1
+            ORDER BY date_add DESC');
     
         return $offers;
     }

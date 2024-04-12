@@ -10,7 +10,7 @@ class AdminOffersListController extends ModuleAdminController
     public function __construct()
     {
         $this->table = 'offers';
-        $this->className = 'Offer';
+        $this->className = 'Offers';
         $this->identifier = 'id_offer';
         $this->name = 'offers_page2'; 
         $this->bootstrap = true;
@@ -29,6 +29,15 @@ class AdminOffersListController extends ModuleAdminController
                     'align' => 'center',
                     'class' => 'fixed-width-xs'
                 ),
+                'image' => array(
+                    'title' => $this->l('Image'),
+                    'align' => 'center',
+                    'callback' => 'displayImage',
+                    'orderby' => false,
+                    'search' => false,
+                    'class' => 'fixed-width-xs'
+                ),
+                
                 'title' => array(
                     'title' => $this->l('Titre'),
                 ),
@@ -38,7 +47,7 @@ class AdminOffersListController extends ModuleAdminController
                 ),
                 'valid' => array(
                     'title' => $this->l('Validé'),
-                    'active' => 'status',
+                    'valid' => 'status',
                     'type' => 'bool',
                     'align' => 'center',
                     'class' => 'fixed-width-sm'
@@ -64,6 +73,8 @@ class AdminOffersListController extends ModuleAdminController
         
 
         public function renderForm() {
+
+            
             $this->fields_form = array(
                 'legend' => array(
                     'title' => $this->l('Annonce'),
@@ -80,14 +91,7 @@ class AdminOffersListController extends ModuleAdminController
                         'type' => 'textarea',
                         'label' => $this->l('Description'),
                         'name' => 'description',
-                        'autoload_rte' => true,
                         'required' => true
-                    ),
-                    array(
-                        'type' => 'file',
-                        'label' => $this->l('Image'),
-                        'name' => 'image',
-                        'display_image' => true,
                     ),
                     array(
                         'type' => 'switch',
@@ -116,5 +120,13 @@ class AdminOffersListController extends ModuleAdminController
             return parent::renderForm();
         }
         
+        public function displayImage($image, $data)
+        {
+            if (isset($image) && $image != '') {
+                return '<img src="../modules/' . $this->module->name . '/views/img/' . $image . '" style="width:100px;height:auto;">';
+            }
+            return '-';
+        }
+
 
 }

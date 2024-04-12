@@ -130,10 +130,10 @@
 				'input' => [
 					[
 						'type' => 'switch',
-						'label' => $this->l('Activer la modération'),
+						'label' => $this->l('Activer la modération des annonces'),
 						'name' => 'ENABLE_MODERATION',
 						'is_bool' => true,
-						'desc' => $this->l('Activer ou désactiver la modération pour les nouvelles offres.'),
+						'desc' => $this->l(' Lorsque la modération est activée, toutes les nouvelles annonces seront initialement marquées comme non valides et devront être approuvées manuellement. Lorsqu\'elle est désactivée, les nouvelles annonces seront automatiquement considérées comme valides et immédiatement visibles sur le site.'),
 						'values' => [
 							[
 								'id' => 'active_on',

@@ -80,10 +80,11 @@ class Offers_page2PostOffersModuleFrontController extends ModuleFrontController 
                 $offer->id_customer = $this->context->customer->id;
                 $offer->description = $description;
                 $offer->image = $imageName; // Sauvegarder seulement le nom de l'image
-                $offer->valid = 1;
+                $offer->valid = $offer->valid = Configuration::get('OFFERS_PAGE_ENABLE_MODERATION') ? 0 : 1;
+                $offer->active      = 1;
 
                 if ($offer->add()) {
-                    Tools::redirect($this->context->link->getModuleLink('offers_page2', 'PostOffers'));
+                    Tools::redirect($this->context->link->getModuleLink('offers_page2', 'AllOffers'));
                 } else {
                     $errors[] = $this->module->l('Failed to save the offer.');
                 }
