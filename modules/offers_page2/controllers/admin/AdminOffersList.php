@@ -61,14 +61,13 @@ class AdminOffersListController extends ModuleAdminController
         
             $this->addRowAction('edit');
             $this->addRowAction('delete');
-            $this->addRowAction('details');
         
             return parent::renderList();
         }
         
         public function getDescriptionSnippet($description, $row)
         {
-            return Tools::substr($description, 0, 75) . '...';
+            return Tools::substr($description, 0, 120) . '...';
         }
         
 
@@ -102,12 +101,12 @@ class AdminOffersListController extends ModuleAdminController
                             array(
                                 'id' => 'active_on',
                                 'value' => 1,
-                                'label' => $this->l('Activé')
+                                'label' => $this->l('Oui')
                             ),
                             array(
                                 'id' => 'active_off',
                                 'value' => 0,
-                                'label' => $this->l('Désactivé')
+                                'label' => $this->l('Non')
                             )
                         )
                     ),

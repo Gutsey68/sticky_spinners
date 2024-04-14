@@ -38,6 +38,7 @@ class Offers_page2AllOffersModuleFrontController extends ModuleFrontController {
                 $offer->delete(); 
 
                 Tools::redirect($this->context->link->getModuleLink('offers_page2', 'AllOffers'));
+
             }
         }
     }

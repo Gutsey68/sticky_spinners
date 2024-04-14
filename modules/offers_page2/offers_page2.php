@@ -27,6 +27,7 @@
 			if (!parent::install() || 
 				!$this->createTable() ||
 				!$this->addAdminMenu() ||
+				!$this->registerHook('actionFrontControllerSetMedia') ||
 				!$this->registerHook('displayTop') ) {
 				return false;
 			}
@@ -99,6 +100,15 @@
 			));
 
 			return $this->display(__FILE__, 'header.tpl');
+		}
+
+		public function hookActionFrontControllerSetMedia() {
+			
+			$this->context->controller->registerStylesheet(
+				'module-offers-style' , 
+				'modules/'.$this->name.'/views/assets/css/front.css' 
+			);
+
 		}
         
 		public function getContent()

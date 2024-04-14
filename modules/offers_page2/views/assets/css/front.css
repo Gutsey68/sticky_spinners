@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Chicle&family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+@layer base {
+  :root {
+    --red-primary: #be020c;
+    --red-1: #fff7f7; /* Backgrounds */
+    --red-2: #ffdbdc; /* Interactive components */
+    --red-3: #f4a9aa; /* Borders and separators */
+    --red-4: #dc3e42; /* Solid backgrounds, buttons */
+    --red-5: #641723; /* High-contrast text */
+    --background: hsl(0, 0%, 100%);
+    --foreground: hsl(0, 0%, 0%);
+    --muted: hsl(0, 12%, 90%);
+    --muted-foreground: hsl(0, 12%, 30%);
+    --popover: hsl(0, 0%, 97%);
+    --popover-foreground: hsl(0, 0%, 0%);
+    --card: hsl(0, 0%, 98%);
+    --card-foreground: hsl(0, 0%, 0%);
+    --border: hsl(0, 0%, 95%);
+    --input: hsl(0, 0%, 92%);
+    --primary: hsl(0, 0%, 17%);
+    --primary-foreground: hsl(0, 0%, 77%);
+    --secondary: hsl(0, 0%, 75%);
+    --secondary-foreground: hsl(0, 0%, 15%);
+    --accent: hsl(0, 0%, 85%);
+    --accent-foreground: hsl(0, 0%, 25%);
+    --destructive: hsl(5, 94%, 44%);
+    --destructive-foreground: hsl(0, 0%, 100%);
+    --ring: hsl(0, 0%, 17%);
+    --radius: 0.5rem;
+  }
+}
+
+/* offer heading */
+
+.offer-accent {
+  color: var(--red-primary);
+  font-family: 'Chicle', cursive;
+  font-size: 1.5rem;
+}
+
+/* offer card */
+
+#wrapper {
+  background-color: var(--background);
+}
+
+.offers-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 15px;
+}
+
+.offer-card {
+  box-sizing: border-box;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  background-color: var(--card);
+  border-radius: var(--radius);
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color),
+    0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.offer-title {
+  color: var(--card-foreground);
+  margin: 1rem 0;
+}
+
+.offer-heading,
+.offer-author {
+  color: var(--secondary-foreground);
+}
+
+.offer-name {
+  color: var(--accent-foreground);
+}
+
+.offer-card-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+.offer-card-image img {
+  width: 450px;
+  height: auto;
+  max-width: 100%;
+  border-radius: var(--radius);
+}
+
+.offer-content {
+  margin: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .offers-container {
+    grid-template-columns: 1fr;
+  }
+
+  .offer-card {
+    margin-bottom: 20px;
+  }
+
+  .offer-card-image img {
+    width: 100%;
+  }
+}
+
+/* next */
