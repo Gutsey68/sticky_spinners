@@ -4,8 +4,13 @@ if (!defined('_PS_VERSION_')) {
     exit;
 }
 
-class Offers extends ObjectModel
-{
+/**
+ * Représente les annonces spécifiques à chaque client dans la boutique.
+ * Chaque offre est liée à un client et contient des informations telles que le titre, la description, une image, et des attributs d'état comme validité et activité.
+ */
+
+class Offers extends ObjectModel {
+    
     public $id_offer;
     public $id_customer;
     public $title; 
@@ -15,7 +20,12 @@ class Offers extends ObjectModel
     public $valid;
     public $active;
     
+    /**
+     * Définition des propriétés de l'offre avec validation et type spécifié pour l'utilisation avec ObjectModel.
+     * Ceci inclut les types de données, les validations, et les contraintes comme la taille des champs et l'obligation.
+     */
     public static $definition = array(
+
         'table' => 'offers',
         'primary' => 'id_offer',
         'fields' => array(          
@@ -29,21 +39,14 @@ class Offers extends ObjectModel
         ),
     );
 
-    public static function getOffersByCustomer($id_customer) {
+    /**
+     * Récupère toutes les annonces valides.
+     * Inclut le prénom du client lié à chaque offre dans les résultats.
+     *
+     * @return array Liste des offres valides avec des informations supplémentaires sur les clients associés.
+     */
+    public static function getValidOffers() {
 
-        $sql = new DbQuery();
-        $sql->select('*');
-        $sql->from('offers', 'o');
-        $sql->where('o.id_customer = '.(int)$id_customer);
-        $sql->orderBy('o.date_add DESC');
-    
-        $results = Db::getInstance()->executeS($sql);
-    
-        return $results ? $results : [];
-    }
-    
-    public static function getValidOffers()
-    {
         $context = Context::getContext();
     
         $offers = Db::getInstance()->executeS('

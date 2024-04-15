@@ -8,10 +8,17 @@ require_once (_PS_MODULE_DIR_.'offers_page2/classes/Offers.php');
 
 class Offers_page2PostOffersModuleFrontController extends ModuleFrontController {
 
+    /**
+     * Initialise le contenu du contrôleur pour le formulaire de publication d'une offre.
+     * Affiche une confirmation si nécessaire et charge les détails d'une offre existante si un identifiant d'offre est fourni.
+     * Assignes les données à Smarty pour utilisation dans le template et définit le template de publication d'offre.
+     */
     public function initContent() {
+
         parent::initContent();
 
         if (Tools::getValue('confirmation')) {
+
             $this->context->smarty->assign(array(
                 'confirmation' => 1
             ));
@@ -30,33 +37,35 @@ class Offers_page2PostOffersModuleFrontController extends ModuleFrontController 
         $this->setTemplate('module:offers_page2/views/templates/front/post_offer.tpl');
     }
 
-    public function postProcess()
-    {
+    /**
+     * Traite la soumission du formulaire de publication d'une offre.
+     * Valide les entrées du formulaire, gère le téléchargement de l'image et crée l'offre dans la base de données.
+     * Redirige l'utilisateur vers la liste des offres après la soumission réussie ou affiche des erreurs si des problèmes surviennent.
+     */
+    public function postProcess() {
+
         if (Tools::isSubmit('submit_offer')) {
-            // Récupérer les données du formulaire
+
             $title = Tools::getValue('title');
             $description = Tools::getValue('description');
             $image = $_FILES['image'];
     
-            // Initialiser un tableau pour stocker les erreurs
             $errors = [];
     
-            // Vérifier si tous les champs nécessaires sont remplis
             if (empty($title)) {
-                $errors[] = $this->module->l('The title is required.');
+                $errors[] = $this->module->l('Le titre est obligatoire.');
             }
     
             if (empty($description)) {
-                $errors[] = $this->module->l('The description is required.');
+                $errors[] = $this->module->l('la description est obligatoire.');
             }
     
-            // Gestion du téléchargement de l'image
             if (isset($image) && $image['error'] === 0) {
                 $allowedMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
+
                 if (!in_array($image['type'], $allowedMimeTypes)) {
-                    $errors[] = $this->module->l('Only JPEG, PNG and GIF files are allowed.');
+                    $errors[] = $this->module->l('Seul les fichiers JPEG, PNG et GIF sont autorisé.');
                 } else {
-                    // Définir le chemin où sauvegarder l'image
                     $uploadPath = _PS_MODULE_DIR_ . 'offers_page2/views/img/';
                     if (!file_exists($uploadPath)) {
                         mkdir($uploadPath, 0755, true);
@@ -64,22 +73,20 @@ class Offers_page2PostOffersModuleFrontController extends ModuleFrontController 
                     $imageName = uniqid() . '-' . $image['name'];
                     $destination = $uploadPath . $imageName;
     
-                    // Déplacer l'image téléchargée
                     if (!move_uploaded_file($image['tmp_name'], $destination)) {
-                        $errors[] = $this->module->l('Failed to upload image.');
+                        $errors[] = $this->module->l('Erreur lors de l\'importation.');
                     }
                 }
             } else {
-                $errors[] = $this->module->l('An image is required.');
+                $errors[] = $this->module->l('L\'image est obligatoire');
             }
     
-            // Si aucune erreur, créer et sauvegarder l'offre
             if (empty($errors)) {
-                $offer = new Offers(); // Assurez-vous que la classe Offers est correctement définie
+                $offer = new Offers();
                 $offer->title = $title;
                 $offer->id_customer = $this->context->customer->id;
                 $offer->description = $description;
-                $offer->image = $imageName; // Sauvegarder seulement le nom de l'image
+                $offer->image = $imageName;
                 $offer->valid = $offer->valid = Configuration::get('OFFERS_PAGE_ENABLE_MODERATION') ? 0 : 1;
                 $offer->active      = 1;
 
@@ -90,7 +97,6 @@ class Offers_page2PostOffersModuleFrontController extends ModuleFrontController 
                 }
             }
     
-            // S'il y a des erreurs, les afficher
             if (!empty($errors)) {
                 foreach ($errors as $error) {
                     $this->errors[] = $error;
@@ -98,5 +104,4 @@ class Offers_page2PostOffersModuleFrontController extends ModuleFrontController 
             }
         }
     }
-    
 }

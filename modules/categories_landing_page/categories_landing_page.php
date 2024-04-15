@@ -6,6 +6,10 @@ if (!defined('_PS_VERSION_')) {
 
 class Categories_landing_page extends Module {
 
+    /**
+     * Constructeur du module Categories_landing_page.
+     * Initialise les propriétés du module, telles que le nom, la catégorie, la version, l'auteur, ainsi que les paramètres pour l'utilisation de Bootstrap et l'intégration au front office.
+     */
     public function __construct() {
 
         $this->name = 'categories_landing_page';
@@ -21,6 +25,12 @@ class Categories_landing_page extends Module {
         $this->description = $this->l('Affiche une sélection de catégories sur la page d’accueil.');
     }
 
+    /**
+     * Installe le module en enregistrant les hooks nécessaires et en effectuant les configurations initiales.
+     * Échoue et retourne false si l'installation du parent ou l'enregistrement du hook échoue.
+     *
+     * @return bool Retourne true si l'installation est réussie, sinon false.
+     */
     public function install() {
         if (
             !parent::install() ||
@@ -31,6 +41,12 @@ class Categories_landing_page extends Module {
         return true;
     }
 
+    /**
+     * Désinstalle le module en supprimant les configurations spécifiques au module.
+     * Supprime notamment la configuration ALERT_EMAIL avant de procéder à la désinstallation parente.
+     *
+     * @return bool Retourne true si la désinstallation est réussie, sinon false.
+     */
     public function uninstall() {
 
         Configuration::deleteByName('ALERT_EMAIL');
@@ -38,6 +54,13 @@ class Categories_landing_page extends Module {
         return parent::uninstall();
     }
 
+    /**
+     * Hook qui s'exécute sur la page d'accueil pour afficher les catégories sélectionnées.
+     * Récupère jusqu'à trois catégories configurées pour l'affichage et les assigne au template Smarty pour l'affichage.
+     *
+     * @param array $params Paramètres fournis par le hook, utilisés pour adapter le comportement du module.
+     * @return string Le contenu HTML généré par le template Smarty.
+     */
     public function hookDisplayHome($params)
     {
         $context = Context::getContext();
@@ -77,11 +100,17 @@ class Categories_landing_page extends Module {
         return $this->display(__FILE__, 'views/templates/hook/index.tpl');
     }
     
-    
-    
-
+    /**
+     * Gère la soumission du formulaire de configuration du module dans l'interface d'administration.
+     * Met à jour les valeurs pour jusqu'à trois catégories choisies pour être affichées sur la page d'accueil.
+     * Sauvegarde les configurations et affiche un message de confirmation après la mise à jour.
+     *
+     * @return string HTML du formulaire de configuration complété par les messages de confirmation.
+     */
     public function getContent() {
         
+        $output = null;
+
         if (((bool)Tools::isSubmit('submit'.$this->name)) == true) {
            
             for ($i = 1; $i <= 3; $i++) {
@@ -94,12 +123,17 @@ class Categories_landing_page extends Module {
                 }
             }
     
-            $this->_html .= $this->displayConfirmation($this->l('Settings updated'));
+            $output .= $this->displayConfirmation($this->l('Modifications enregistrées'));
         }
-        return $this->_html.$this->displayForm();
+        return $output.$this-> displayForm();
     }
     
-
+    /**
+     * Génère et affiche le formulaire de configuration pour le module dans l'interface d'administration.
+     * Construit dynamiquement les options de sélection des catégories basées sur les catégories disponibles.
+     *
+     * @return string Le HTML du formulaire généré pour la configuration des catégories.
+     */
     protected function displayForm() {
 
         $helper = new HelperForm();
@@ -108,9 +142,8 @@ class Categories_landing_page extends Module {
         $helper->token = Tools::getAdminTokenLite('AdminModules');
         $helper->currentIndex = AdminController::$currentIndex . '&configure=' . $this->name;
         $helper->submit_action = 'submit' . $this->name;
-        $helper->default_form_language = $default_lang;
 
-        $categories = Category::getCategories($default_lang, true, true);
+        $categories = Category::getCategories(false, true, true);
         $options_categories = [];
         foreach ($categories as $category) {
             foreach ($category as $key => $value) {
@@ -138,7 +171,7 @@ class Categories_landing_page extends Module {
             $fields_form[0]['form']['input'][] = [
                 'type' => 'select',
                 'label' => $this->l('Category ') . $i,
-                'desc' => $this->l('Choose a category to display.'),
+                'desc' => $this->l('Choisissez une catégorie à afficher.'),
                 'name' => 'HOME_CATEGORY_' . $i,
                 'required' => false,
                 'options' => [
