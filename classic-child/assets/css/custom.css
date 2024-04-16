@@ -41,6 +41,27 @@
   font-family: 'Chicle', cursive;
 }
 
+/* custom btn */
+
+.custom-btn {
+  font-size: 1rem;
+  align-items: center;
+  height: 48px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  padding: 12px 24px;
+  color: var(--background);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0.5rem 1rem rgba(143, 142, 142, 0.15) !important;
+  background: var(--red-primary);
+}
+
+.custom-btn:hover {
+  background: var(--red-4);
+  color: var(--background);
+}
+
 a:hover,
 .footer-container li a:hover {
   color: var(--red-5);
@@ -86,33 +107,30 @@ a:hover,
 #header {
   position: relative;
   z-index: 999;
-  color: var(-rgb(97, 90, 90) eground);
-  background: #fff;
+  color: var(--foreground);
+  background: var(--background);
   -webkit-box-shadow: 0;
   box-shadow: none;
 }
 
 #header a,
-#header span {
-  color: var(--foreground);
+#header span,
+#header i {
   font-weight: 600;
-}
-
-#header .header-nav .cart-preview .shopping-cart {
-  color: var(--foreground);
 }
 
 .custom-header {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
   padding-right: 20px;
-}
-.custom-header a {
-  margin-right: 20px;
-  margin-top: 0.7rem;
+  align-items: center;
+  justify-content: space-between;
 }
 
+#header .account-link,
+#header .log-link {
+  color: red;
+}
 /* bloc des catégories */
 
 .block-categories {
@@ -203,8 +221,8 @@ a:hover,
 
 #home-categories {
   font-weight: 600;
-  text-align: center;
-  margin-bottom: 2.5rem;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
 }
 
 @media (max-width: 768px) {
@@ -316,21 +334,48 @@ a.subcategory-name {
 
 /* custom btn */
 
-.custom-btn {
-  font-size: 1rem;
+.header-top-right {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  height: 48px;
-  border-radius: var(--radius);
-  font-weight: 600;
-  padding: 12px 24px;
-  color: var(--background);
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 0.5rem 1rem rgba(143, 142, 142, 0.15) !important;
-  background: var(--red-primary);
 }
 
-.custom-btn:hover {
-  background: var(--red-4);
+.user-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.custom-header a:nth-child(2) {
+  margin: 0 1.5rem;
+}
+
+/* footer */
+
+.footer-container {
+  background-color: var(--foreground);
+}
+
+.footer-container a {
   color: var(--background);
+}
+
+p.h4.text-uppercase.block-contact-title.hidden-sm-down {
+  color: var(--background);
+}
+p.h3.hidden-sm-down {
+  color: var(--background);
+}
+
+.block-contact,
+.footer-container li a {
+  color: var(--secondary);
+}
+
+.footer-container li a:hover {
+  color: var(--muted);
+}
+
+.footer-container div.row {
+  margin-left: 1rem;
 }
