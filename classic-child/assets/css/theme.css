@@ -1398,7 +1398,6 @@ fieldset[disabled] a.btn {
 .btn-primary,
 .btn-primary:hover {
   color: var(--background);
-  background-color: #be020c;
   border-color: transparent;
 }
 .btn-primary:hover {
@@ -6585,7 +6584,7 @@ body#checkout
 .product-miniature .product-title a {
   font-size: 0.875rem;
   font-weight: 400;
-  color: #7a7a7a;
+  color: var(--accent-foreground);
   text-align: center;
   text-decoration: none;
 }
@@ -6727,7 +6726,7 @@ body#checkout
 .page-content.page-cms #custom-text ul {
   font-size: 0.875rem;
   font-weight: 400;
-  color: #232323;
+  color: var(--accent-foreground);
 }
 #custom-text .page-content.page-cms ul .dark,
 #custom-text p .dark,
@@ -8621,7 +8620,7 @@ body#checkout
 .block_newsletter form .row .col-xs-12:last-of-type p,
 .page-content.page-cms .block_newsletter form .row .col-xs-12:last-of-type ul {
   font-size: 0.75rem;
-  color: #7a7a7a;
+  color: var(--accent-foreground);
 }
 .block_newsletter
   form

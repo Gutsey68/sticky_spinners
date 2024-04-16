@@ -43,7 +43,8 @@
 
 /* custom btn */
 
-.custom-btn {
+.custom-btn,
+.btn-primary {
   font-size: 1rem;
   align-items: center;
   height: 48px;
@@ -57,8 +58,9 @@
   background: var(--red-primary);
 }
 
-.custom-btn:hover {
-  background: var(--red-4);
+.custom-btn:hover,
+.btn-primary:hover {
+  background: var(--red-4) !important;
   color: var(--background);
 }
 
@@ -378,4 +380,13 @@ p.h3.hidden-sm-down {
 
 .footer-container div.row {
   margin-left: 1rem;
+}
+
+.block-categories {
+  margin-top: 2.2rem;
+}
+
+#pagenotfound .page-not-found,
+#products .page-not-found {
+  margin-top: 1rem;
 }
