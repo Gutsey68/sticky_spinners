@@ -10543,7 +10543,7 @@ body#checkout
   .footer-container .links ul > li {
     padding: 0.625rem;
     font-weight: 600;
-    border-bottom: 1px solid var(--background);
+    border-bottom: 1px solid var(--accent-foreground);
   }
   .footer-container .links ul > li a {
     color: #232323;
