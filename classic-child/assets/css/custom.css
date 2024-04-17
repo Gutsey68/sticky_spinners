@@ -300,7 +300,7 @@ a.subcategory-name {
 
 .custom-text-heading {
   text-wrap: pretty;
-  margin-top: 2rem;
+  margin-top: 1.2rem;
 }
 
 .sticky-span {
@@ -310,7 +310,7 @@ a.subcategory-name {
 }
 
 #custom-text h1 {
-  font-size: 2rem;
+  font-size: 2.2rem;
 }
 
 #custom-text {
@@ -467,6 +467,14 @@ div.account-link {
     var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.page-my-account #content .links a span.link-item {
+  background: none;
+}
+
+.page-my-account #content .links {
+  justify-content: center;
+}
+
 .nav-tabs .nav-item.open .nav-link,
 .nav-tabs .nav-item.open .nav-link:focus,
 .nav-tabs .nav-item.open .nav-link:hover,
@@ -534,7 +542,11 @@ img.thumb.js-modal-thumb {
 #header .header-nav .cart-preview .shopping-cart {
   color: var(--foreground);
 }
-
+@media (min-width: 767px) {
+  #custom-text {
+    margin-top: 2rem;
+  }
+}
 @media (max-width: 767px) {
   .header-top-right {
     display: flex;
@@ -546,7 +558,79 @@ img.thumb.js-modal-thumb {
     margin: 0;
   }
 
+  #header .header-top {
+    padding: 0;
+  }
+
   #custom-text img {
     height: auto;
   }
+
+  .header-top-right {
+    display: none;
+  }
+
+  #mobile_top_menu_wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .custom-header {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: start;
+  }
+
+  #mobile_top_menu_wrapper .js-top-menu-bottom a,
+  .dropdown,
+  body#checkout section.checkout-step small {
+    color: var(--foreground);
+    padding: 0;
+  }
+
+  #mobile_top_menu_wrapper .js-top-menu-bottom .user-info {
+    padding: 0;
+  }
+
+  .float-xs-right {
+    display: none;
+  }
+}
+
+#header .header-nav {
+  border-bottom: none;
+}
+
+.desktop-hidden {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .desktop-hidden {
+    display: block;
+  }
+
+  .logout {
+    display: flex;
+    align-items: center;
+  }
+
+  .logout i,
+  .logout span {
+    display: inline-block;
+  }
+}
+
+div.products.row {
+  margin: 0;
 }
