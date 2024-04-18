@@ -629,8 +629,16 @@ img.thumb.js-modal-thumb {
   .logout span {
     display: inline-block;
   }
+
+  .offers_page img.img-fluid {
+    margin-top: 2rem;
+  }
 }
 
 div.products.row {
   margin: 0;
+}
+
+.offers_page img.img-fluid {
+  border-radius: var(--radius);
 }
