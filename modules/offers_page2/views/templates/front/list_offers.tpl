@@ -39,7 +39,7 @@
                                 <div class="offer-author">
                                     <p>Posté par: <span class="offer-name"> {$offer.customer_firstname} </span>, le {$offer.date_add|date_format:"%d/%m/%Y"} </p>
                                     {if $customer.is_logged && $customer.id == $offer.id_customer}
-                                        <a href="{$link->getModuleLink('offers_page2', 'EditOffer', ['id_offer' => $offer.id_offer])}">Modifier mon annonce</a>
+                                        <a href="{$link->getModuleLink('offers_page2', 'EditOffer', ['id_offer' => $offer.id_offer])}">Modifier mon annonce</a><br/>
                                         <a href="{$link->getModuleLink('offers_page2', 'AllOffers', ['action' => 'delete', 'id_offer' => $offer.id_offer])}" >Supprimer mon annonce</a>
                                     {/if}
                                 </div>
