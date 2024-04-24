@@ -48,7 +48,7 @@ Les contributions à ce projet sont bienvenues. Pour contribuer, veuillez forker
 
 ## Auteurs
 
-- **Votre Nom** - _Développement initial_ - [Gauthier Seyzeriat--Meyer](https:github.com/Gutsey68)
+- **Gauthier Seyzeriat--Meyer** - _Développement initial_ - [Gauthier Seyzeriat--Meyer](https:github.com/Gutsey68)
 
 ## Remerciements
 
