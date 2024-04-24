@@ -1,4 +1,4 @@
-# Thème Enfant et Modules pour Sticky Spinners
+# Thème enfant et modules pour Sticky Spinners
 
 Bienvenue sur le dépôt GitHub du thème enfant et des modules personnalisés pour Sticky Spinners, une boutique en ligne spécialisée dans la vente de vinyles. Ce thème et ces modules sont conçus pour enrichir l'expérience utilisateur et offrir des fonctionnalités spécifiques adaptées aux besoins de notre communauté de passionnés de musique.
 
@@ -20,7 +20,7 @@ Bienvenue sur le dépôt GitHub du thème enfant et des modules personnalisés p
 - Accès administrateur à votre backend PrestaShop.
 - Accès FTP pour télécharger des fichiers sur votre serveur.
 
-### Installation du Thème Enfant
+### Installation du thème enfant
 
 1. Téléchargez le dossier compressé du thème enfant.
 2. Connectez-vous à votre serveur via FTP, et naviguez jusqu'au répertoire `/themes`.
@@ -28,7 +28,7 @@ Bienvenue sur le dépôt GitHub du thème enfant et des modules personnalisés p
 4. Dans le back-office de PrestaShop, allez à "Apparence > Thème & Logo".
 5. Trouvez le thème enfant de Sticky Spinners et cliquez sur "Utiliser ce thème".
 
-### Installation des Modules
+### Installation des modules
 
 Pour chaque module :
 
